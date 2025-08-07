@@ -21,6 +21,10 @@ def getHeightArray(A, r):
         h[i] = getHeight(A[i], r)
     return h
 
+# Funktion berechnet die Fläche eines Kreissegments auf Basis des Kreisradiuses r und der Höhe h des Segments
+def getArea(h, r):
+    return r**2 * np.arccos(1 - h / r) - (r - h) * np.sqrt(2 * r * h - h**2)
+
 def model_prediction(model, dV_ges, eps_0, phi_0, x, X_min, X_max, Y_min, Y_max, col_nonzero):
     # Build input array for all x values:
     if isinstance(x, (int, float)):
